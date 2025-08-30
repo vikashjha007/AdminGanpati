@@ -952,7 +952,7 @@ function clearMemberForm() {
 
 // Load members and render - you should have this existing or similar
 function loadMembers() {
-  db.collection("members").orderBy("timestamp", "desc").get()
+  db.collection("members").orderBy("timestamp", "asc").get()
     .then((querySnapshot) => {
       const members = [];
       querySnapshot.forEach((doc) => {
