@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
     else alert('Please fill all fields for donation.');
   }  
   function loadDonations() {
-    db.collection("donations").get().then(q => {
+    db.collection("donations").orderBy('roomNumber', 'asc').get().then(q => {
       donations = [];
       q.forEach(doc => { let d = doc.data(); d.id = doc.id; donations.push(d); });
       renderDonations();
